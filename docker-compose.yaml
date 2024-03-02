@@ -1,0 +1,26 @@
+version: "3"
+services:
+  surf: #https://code.mendhak.com/run-docker-through-vpn-container/
+    image: qmcgaw/gluetun
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - VPN_SERVICE_PROVIDER=surfshark
+      - VPN_TYPE=wireguard
+      - WIREGUARD_PRIVATE_KEY=${WIRE_PRIVATE}
+      - WIREGUARD_ADDRESSES=${WIRE_ADDRESS}
+      - SERVER_COUNTRIES=${WIRE_COUNTRY}
+  pdown: #https://github.com/EchterAlsFake/PHUB
+    image: pdown-monitor:0.0.1
+    network_mode: "service:surf"  # <-- the magic
+    environment:
+      PUID: 1000
+      PGID: 1000
+      QUALITY: ${PDOWN_QUALITY} #best, half, worst
+    volumes:
+      - ${PDOWN_FILE}:/tmp/download.txt
+      - ${PDOWN_DOWNLOAD_LOCATION}:/tmp/downloads
+
+
+# surf public: KehtYYBRBb39NJM18TgmW7SWqD28BDFEi05IJAY7VVo=
+# surf private: qN3FGrv7rXHDUeZfWwTZR2nAgDBtq1axyom6ZcXHp1k=
