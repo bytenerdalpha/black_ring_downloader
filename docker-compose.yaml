@@ -20,7 +20,3 @@ services:
     volumes:
       - ${PDOWN_FILE}:/tmp/download.txt
       - ${PDOWN_DOWNLOAD_LOCATION}:/tmp/downloads
-
-
-# surf public: KehtYYBRBb39NJM18TgmW7SWqD28BDFEi05IJAY7VVo=
-# surf private: qN3FGrv7rXHDUeZfWwTZR2nAgDBtq1axyom6ZcXHp1k=

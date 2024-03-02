@@ -3,7 +3,6 @@ FROM python:latest
 
 ENV quality half
 
-#RUN pip install --upgrade git+https://github.com/EchterAlsFake/PHUB.git
 RUN pip install --upgrade phub click watchdog
 RUN mkdir -p /opt/download
 
