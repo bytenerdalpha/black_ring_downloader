@@ -6,8 +6,9 @@ eg: docker run -it --rm -e url=https://www.p***b.com/view_video.php?viewkey=1321
 
 #### Running a monitoring service
 This will allow you to run a container in monitor mode. It monitors for a text file and downloads any phub url's that are added to it.
+docker run -it --rm -e quality=half -v <FILE_LOCATION_WITH_URLS>:/tmp/download.txt -v <DOWNLOAD_LOCATION>:/opt/download bytenerdalpha/black_ring_monitor:v0.0.1
 
-
+eg: docker run -it --rm -e quality=half -v /home/random/myinput.txt:/tmp/download.txt -v /tmp/test:/opt/download bytenerdalpha/black_ring_monitor:v0.0.1
 
 
 #### Credits
