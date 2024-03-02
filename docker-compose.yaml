@@ -10,8 +10,8 @@ services:
       - WIREGUARD_PRIVATE_KEY=${WIRE_PRIVATE}
       - WIREGUARD_ADDRESSES=${WIRE_ADDRESS}
       - SERVER_COUNTRIES=${WIRE_COUNTRY}
-  pdown: #https://github.com/EchterAlsFake/PHUB
-    image: pdown-monitor:0.0.1
+  black_ring: #https://github.com/EchterAlsFake/PHUB
+    image: bytenerdalpha/black_ring_monitor:v0.0.1
     network_mode: "service:surf"  # <-- the magic
     environment:
       PUID: 1000
